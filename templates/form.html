@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FastAPI Form</title>
+</head>
+<body>
+    <h1>FastAPI Form</h1>
+    <form action="/submit_form" method="post">
+        <label for="ID">ID:</label><br>
+        <input type="text" id="ID" name="ID" required><br>
+        
+        <label for="priemer">Priemer (between 1 and 3):</label><br>
+        <input type="number" id="priemer" name="priemer" min="1" max="3" step="0.1" required><br>
+        
+        <label for="vzdialenost">Vzdialenost (between 0 and 700):</label><br>
+        <input type="number" id="vzdialenost" name="vzdialenost" min="0" max="700" required><br>
+        
+        <label for="intrak">Intrak:</label><br>
+        <select id="intrak" name="intrak" required>
+            <option value="Dolnozemská">Dolnozemská</option>
+            <option value="Starohájska 4">Starohájska 4</option>
+            <option value="Starohájska 8">Starohájska 8</option>
+            <option value="Prokopa Veľkého 41">Prokopa Veľkého 41</option>
+            <option value="Hroboňova 4">Hroboňova 4</option>
+            <option value="Vlčie hrdlo">Vlčie hrdlo</option>
+        </select><br><br>
+        
+        <input type="submit" value="Submit">
+    </form>
+    <a href="/" style="text-decoration: none;"><button>Return to Main Page</button></a>
+</body>
+</html>

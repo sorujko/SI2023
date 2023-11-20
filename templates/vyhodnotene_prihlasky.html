@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vyhodnotené Prihlášky</title>
+    <style>
+        table {
+            font-family: Arial, sans-serif;
+            border-collapse: collapse;
+            width: 50%;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Vyhodnotené Prihlášky</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Pridelený Internát</th>
+                <th>Body</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in results %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/podane_prihlasky" style="text-decoration: none;"><button>Podane prihlasky</button></a><br><br>
+    <a href="/" style="text-decoration: none;"><button>Return to Main Page</button></a>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Modify Form</title>
+</head>
+<body>
+    <h1>Modify Form</h1>
+    <form action="/update_form" method="post">
+        <label for="ID">ID:</label><br>
+        <input type="text" id="ID" name="ID" value="{{ ID }}" readonly><br>
+        
+        <label for="priemer">Priemer (between 1 and 3):</label><br>
+        <input type="number" id="priemer" name="priemer" min="1" max="3" step="0.1" value="{{ Priemer }}" required><br>
+        
+        <label for="vzdialenost">Vzdialenost (between 0 and 700):</label><br>
+        <input type="number" id="vzdialenost" name="vzdialenost" min="0" max="700" value="{{ Vzdialenost }}" required><br>
+
+
+        <label for="intrak">Intrak:</label><br>
+        <select id="intrakSelect" name="intrakSelect" onchange="updateIntrak()">
+            <option value="{{ Intrak }}" selected>{{ Intrak }}</option>
+            <option value="Dolnozemská">Dolnozemská</option>
+            <option value="Starohájska 4">Starohájska 4</option>
+            <option value="Starohájska 8">Starohájska 8</option>
+            <option value="Prokopa Veľkého 41">Prokopa Veľkého 41</option>
+            <option value="Hroboňova 4">Hroboňova 4</option>
+            <option value="Vlčie hrdlo">Vlčie hrdlo</option>
+        </select>
+        
+        <input type="hidden" id="intrak" name="intrak" value="{{ Intrak }}" required><br><br>
+    
+    <input type="submit" value="Submit">
+    </form>
+    <script>
+        function updateIntrak() {
+            var select = document.getElementById("intrakSelect");
+            var intrakField = document.getElementById("intrak");
+            var selectedValue = select.options[select.selectedIndex].value;
+            intrakField.value = selectedValue;
+        }
+    </script>
+    
+    <a href="/" style="text-decoration: none;"><button>Return to Main Page</button></a>
+</body>
+</html>

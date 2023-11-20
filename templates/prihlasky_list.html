@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Submitted Applications</title>
+    <style>
+        table {
+            font-family: Arial, sans-serif;
+            border-collapse: collapse;
+            width: 50%;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .delete-btn {
+            background-color: #ff6666;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Submitted Applications</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Priemer</th>
+                <th>Vzdialenost</th>
+                <th>Intrak</th>
+                <th>Uprav</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in results %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+                <td>
+                    <form action="/update_prihlaska" method="get">
+                        <input type="hidden" name="ID" value="{{ row[0] }}">
+                        <input type="hidden" name="Priemer" value="{{ row[1] }}">
+                        <input type="hidden" name="Vzdialenost" value="{{ row[2] }}">
+                        <input type="hidden" name="Intrak" value="{{ row[3] }}">
+                        <input type="submit" value="Uprav">
+                    </form>
+                </td>
+                <td>
+                    <form action="/delete_record" method="post">
+                        <input type="hidden" name="ID" value="{{ row[0] }}">
+                        <input class="delete-btn" type="submit" value="X">
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/vyhodnotene_prihlasky" style="text-decoration: none;"><button>Vyhodnotene prihlasky</button></a><br><br>
+    <a href="/" style="text-decoration: none;"><button>Return to Main Page</button></a>
+</body>
+</html>

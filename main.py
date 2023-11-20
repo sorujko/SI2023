@@ -9,7 +9,7 @@ templates = Jinja2Templates(directory="templates")
 
 # MySQL Connection setup
 db = psycopg2.connect(
-    host="dpg-cldobqfgsrdc73fm02sg-a",
+    host="dpg-cldobqfgsrdc73fm02sg-a.frankfurt-postgres.render.com",
     user="juro",
     password="dvYbk1fGqez6FZgqtbOmCLIJs5k2Hfjt",
     database="ubytovanie_g517",

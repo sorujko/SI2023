@@ -10,9 +10,9 @@ templates = Jinja2Templates(directory="templates")
 # MySQL Connection setup
 db = psycopg2.connect(
     host="localhost",
-    user="postgres",
-    password="root",
-    database="ubytovanie",
+    user="juro",
+    password="dvYbk1fGqez6FZgqtbOmCLIJs5k2Hfjt",
+    database="ubytovanie_g517",
     port = '5432'
 )
 cursor = db.cursor()

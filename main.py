@@ -94,8 +94,12 @@ async def update_form(
         update_values = (priemer, vzdialenost, intrak, ID)
         cursor.execute(update_query, update_values)
         db.commit()
+        
+        select_query = "SELECT * FROM prihlasky"
+        cursor.execute(select_query)
+        results = cursor.fetchall()
 
-        return templates.TemplateResponse("prihlasky_list.html", {"request": request})
+        return templates.TemplateResponse("prihlasky_list.html", {"request": request, "results": results})
     except psycopg2.Error as err:
         return templates.TemplateResponse("error.html", {"request": request, "error": err})
 
@@ -109,8 +113,11 @@ async def delete_record(request: Request, ID: str = Form(...)):
         cursor.execute(delete_query, delete_values)
         db.commit()
 
-        # Redirect to a success or main page after deletion
-        return templates.TemplateResponse("prihlasky_list.html", {"request": request})
+        select_query = "SELECT * FROM prihlasky"
+        cursor.execute(select_query)
+        results = cursor.fetchall()
+
+        return templates.TemplateResponse("prihlasky_list.html", {"request": request, "results": results})
     except psycopg2.Error as err:
         return templates.TemplateResponse("error.html", {"request": request, "error": err})
 

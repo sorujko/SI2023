@@ -95,7 +95,7 @@ async def update_form(
         cursor.execute(update_query, update_values)
         db.commit()
 
-        return templates.TemplateResponse("success.html", {"request": request})
+        return templates.TemplateResponse("prihlasky_list.html", {"request": request})
     except psycopg2.Error as err:
         return templates.TemplateResponse("error.html", {"request": request, "error": err})
 
@@ -110,7 +110,7 @@ async def delete_record(request: Request, ID: str = Form(...)):
         db.commit()
 
         # Redirect to a success or main page after deletion
-        return templates.TemplateResponse("success.html", {"request": request})
+        return templates.TemplateResponse("prihlasky_list.html", {"request": request})
     except psycopg2.Error as err:
         return templates.TemplateResponse("error.html", {"request": request, "error": err})
 

@@ -26,13 +26,13 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Pridelený Internát</th>
                 <th>Body</th>
+                <th>Pridelený Internát</th>
             </tr>
         </thead>
         <tbody>
             {% for row in results %}
-            <tr>
+            <tr {% if row[2] == 'neprideleny internat' %}style="background-color: red; font-weight: bold;"{% else %}style="background-color: green; font-weight: bold;"{% endif %}>
                 <td>{{ row[0] }}</td>
                 <td>{{ row[1] }}</td>
                 <td>{{ row[2] }}</td>
